@@ -1,0 +1,19 @@
+version: '2'
+services:
+  notebook:
+    image: anatomy
+    build:
+      context: .
+    env_file: .env
+    environment:
+      - DISPLAY=$DISPLAY
+      - XSOCK=/tmp/.X11-unix/X0
+    ports:
+      - "2222:2222"
+    volumes:
+      - /tmp:/tmp
+      - .:/src/data-analysis-homework-spapa013
+      - /home/stelios/Documents/Edgars-Guide/data-analysis-homework-spapa013/notebooks:/notebooks/
+      - /home/stelios/Dropbox/Figures:/notebooks/figures
+    network_mode: "host"
+
